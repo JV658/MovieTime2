@@ -17,6 +17,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        // inital view will be a tab bar controller
+        let tabContr = window?.rootViewController as! UITabBarController
+        // getting the persistent container from app delegate
+        let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+        
+        // looping through all children of the tabContr
+        for viewContr in tabContr.children {
+            // checking if the viewContr can be typeCast as a UINav
+            if let viewContr = viewContr as? UINavigationController {
+                if let movieContr = viewContr.topViewController as? MovieTableViewController {
+                    movieContr.persistentContainer = persistentContainer
+                }
+                
+//                if let tabContr = viewContr.TagTableViewController {
+//                    tabContr.persistentContainer = persistentContainer
+//                }
+                
+                
+            }
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

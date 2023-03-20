@@ -14,6 +14,8 @@
 		DB26992E299A75E10073192E /* MovieTime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB26992C299A75E10073192E /* MovieTime.xcdatamodeld */; };
 		DB269930299A75E20073192E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB26992F299A75E20073192E /* Assets.xcassets */; };
 		DB269933299A75E20073192E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB269931299A75E20073192E /* LaunchScreen.storyboard */; };
+		DB26993F299A7BCD0073192E /* MovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26993E299A7BCD0073192E /* MovieTableViewController.swift */; };
+		DB77342F29C2648500849D49 /* TagTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77342E29C2648500849D49 /* TagTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		DB26992F299A75E20073192E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB269932299A75E20073192E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB269934299A75E20073192E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB26993E299A7BCD0073192E /* MovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewController.swift; sourceTree = "<group>"; };
+		DB77342E29C2648500849D49 /* TagTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				DB269923299A75E10073192E /* AppDelegate.swift */,
 				DB269925299A75E10073192E /* SceneDelegate.swift */,
 				DB269927299A75E10073192E /* ViewController.swift */,
+				DB26993E299A7BCD0073192E /* MovieTableViewController.swift */,
+				DB77342E29C2648500849D49 /* TagTableViewController.swift */,
 				DB269929299A75E10073192E /* Main.storyboard */,
 				DB26992F299A75E20073192E /* Assets.xcassets */,
 				DB269931299A75E20073192E /* LaunchScreen.storyboard */,
@@ -141,7 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB26993F299A7BCD0073192E /* MovieTableViewController.swift in Sources */,
 				DB269928299A75E10073192E /* ViewController.swift in Sources */,
+				DB77342F29C2648500849D49 /* TagTableViewController.swift in Sources */,
 				DB26992E299A75E10073192E /* MovieTime.xcdatamodeld in Sources */,
 				DB269924299A75E10073192E /* AppDelegate.swift in Sources */,
 				DB269926299A75E10073192E /* SceneDelegate.swift in Sources */,
