@@ -1,43 +1,32 @@
 //
-//  TagTableViewController.swift
+//  MovieTagsTableViewController.swift
 //  MovieTime
 //
-//  Created by Cambrian on 2023-03-15.
+//  Created by Cambrian on 2023-03-20.
 //
 
 import UIKit
 import CoreData
 
-class TagTableViewController: UITableViewController {
-    
+class MovieTagsTableViewController: UITableViewController {
+
     var persistentContainer: NSPersistentContainer!
+    var movie: Movie!
     var tagList = [Tag]()
     
     @IBAction func addTag(_ sender: Any) {
-        let alert = UIAlertController(title: "Add Tag", message: "Please enter the name of your tag", preferredStyle: .alert)
+        
+        let alert = UIAlertController(title: "Add Tag", message: "", preferredStyle: .alert)
         
         alert.addTextField{
-            (textfield) in
-            textfield.text = "tag name"
+            textfield in
+            textfield.placeholder = "tag name"
         }
         
-        let alertOK = UIAlertAction(title: "Save", style: .default){ [self] _ in
-            let textfield = alert.textFields![0]
-            
-            let tag = Tag(context: persistentContainer.viewContext)
-            tag.name = textfield.text
-            
-            try! persistentContainer.viewContext.save()
-            
-            tableView.reloadData()
-        }
+        let alertSave = UIAlertAction(title: "Save", style: .default)
+
         
-        let alertCancel = UIAlertAction(title: "Cancel", style: .cancel)
         
-        alert.addAction(alertOK)
-        alert.addAction(alertCancel)
-        
-        self.present(alert, animated: true)
     }
     
     override func viewDidLoad() {
@@ -50,19 +39,10 @@ class TagTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let request: NSFetchRequest<Tag> = Tag.fetchRequest()
-        let moc = persistentContainer.viewContext
-        
-        guard
-            let results = try? moc.fetch(request)
-        else {return}
-        
-        tagList = results
-        
-        tableView.reloadData()
+        tagList = movie.tags!.allObjects as! [Tag]
     }
 
     // MARK: - Table view data source
@@ -74,13 +54,15 @@ class TagTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tagList.count
+        return movie.tags!.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tagCell", for: indexPath)
 
-        cell.textLabel!.text = tagList[indexPath.row].name
+        // Configure the cell...
+        cell.textLabel!.text =
+        
 
         return cell
     }

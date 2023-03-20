@@ -31,9 +31,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     movieContr.persistentContainer = persistentContainer
                 }
                 
-//                if let tabContr = viewContr.TagTableViewController {
-//                    tabContr.persistentContainer = persistentContainer
-//                }
+                if let tabContr = viewContr.topViewController as? TagTableViewController {
+                    tabContr.persistentContainer = persistentContainer
+                }
                 
                 
             }
